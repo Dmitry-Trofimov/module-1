@@ -1,0 +1,68 @@
+enable
+configure terminal
+hostname br-rtr
+ip domain-name au-team.irpo
+
+username net_admin
+password P@ssw0rd
+role admin
+exit
+
+! INT0 — к ISP
+interface int0
+ description "ISP"
+ ip address 172.16.2.2/28
+ ip nat outside
+exit
+
+port te0
+ service-instance te0/int0
+ encapsulation untagged
+ connect ip interface isp
+exit
+exit
+
+! INT1 — к BR-FW
+interface int1
+ description "BR-FW"
+ ip address 172.16.3.1/30
+ ip nat inside
+exit
+
+port te1
+ service-instance te1/int1
+ encapsulation untagged
+ connect ip interface int1
+exit
+exit
+
+ip route 0.0.0.0/0 172.16.2.1
+
+! GRE-туннель к HQ-RTR
+interface tunnel.0
+ description "GRE"
+ ip address 10.10.10.2/30
+ ip mtu 1400
+ ip tunnel 172.16.2.2 172.16.1.2 mode gre
+exit
+
+! OSPF
+router ospf 1
+ ospf router-id 10.10.10.2
+ passive-interface default
+ no passive-interface tunnel.0
+ network 10.10.10.0/30 area 0
+ network 172.16.3.0/30 area 0
+exit
+
+! MD5-аутентификация OSPF на GRE
+interface tunnel.0
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 1 md5 P@ssw0rd
+exit
+
+! NAT сети филиала через ISP
+ip nat pool BR-FW 172.16.3.2-172.16.3.2
+ip nat source dynamic inside-to-outside pool BR-FW overload interface isp
+
+write memory
