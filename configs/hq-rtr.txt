@@ -1,0 +1,115 @@
+enable
+configure terminal
+hostname hq-rtr
+ip domain-name au-team.irpo
+username net_admin
+password P@ssw0rd
+role admin
+exit
+
+interface int1
+ description "srv"
+ ip address 192.168.2.1/30
+exit
+
+interface int2
+ description "cli"
+ ip address 192.168.3.1/30
+exit
+
+interface vl999
+ description "switch"
+ ip address 192.168.99.1/30
+exit
+
+interface int0
+ description "ISP"
+ ip address 172.16.1.2/30
+ ip nat outside
+exit
+
+port te0
+ service-instance te0/int0
+ encapsulation untagged
+ connect ip interface isp
+exit
+exit
+
+port te1
+ service-instance te1/int1
+ encapsulation dot1q 100 exact
+ rewrite pop 1
+ connect ip interface int1
+exit
+ service-instance te1/int2
+ encapsulation dot1q 200 exact
+ rewrite pop 1
+ connect ip interface int2
+exit
+ service-instance te1/vl999
+ encapsulation dot1q 999 exact
+ rewrite pop 1
+ connect ip interface vl999
+exit
+exit
+
+interface int1
+ ip nat inside
+exit
+interface int2
+ ip nat inside
+exit
+interface vl999
+ ip nat inside
+exit
+
+ip route 0.0.0.0/0 172.16.1.1
+
+interface tunnel.0
+ description "GRE"
+ ip address 10.10.10.1/30
+ ip mtu 1400
+ ip tunnel 172.16.1.2 172.16.2.2 mode gre
+exit
+
+router ospf 1
+ ospf router-id 10.10.10.1
+ passive-interface default
+ no passive-interface tunnel.0
+ network 10.10.10.0/30 area 0
+ network 192.168.2.0/30 area 0
+ network 192.168.3.0/30 area 0
+ network 192.168.99.0/30 area 0
+exit
+
+interface tunnel.0
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 1 md5 P@ssw0rd
+exit
+
+ip nat pool VLAN100 192.168.2.2-192.168.2.2
+ip nat pool VLAN200 192.168.3.2-192.168.3.2
+ip nat pool VLAN999 192.168.99.2-192.168.99.2
+
+ip nat source dynamic inside-to-outside pool VLAN100 overload interface isp
+ip nat source dynamic inside-to-outside pool VLAN200 overload interface isp
+ip nat source dynamic inside-to-outside pool VLAN999 overload interface isp
+
+ip pool VLAN200
+ range 192.168.3.2-192.168.3.2
+exit
+
+dhcp-server 1
+ pool VLAN200 1
+ mask 28
+ gateway 192.168.3.1
+ dns 192.168.2.2
+ domain-name au-team.irpo
+exit
+
+interface vl200
+ dhcp-server 1
+exit
+
+ntp timezone utc+3
+write memory
