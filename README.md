@@ -69,6 +69,9 @@
 - [`configs/br-rtr.txt`](configs/br-rtr.txt) — конфигурация BR-RTR из исходного документа.
 - [`assets/topology.png`](assets/topology.png) — схема экзаменационной сети.
 
+ ## НУ ТЫ ЗНАЕШЬ ЧТО ДЕЛАТЬ)
+ https://www.donationalerts.com/r/daimonfantic2007
+
 ## ⚠️ Дисклеймер
 
 **Вся представленная здесь настройка — исключительно моя работа и моя ответственность.**
