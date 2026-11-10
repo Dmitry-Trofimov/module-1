@@ -113,7 +113,7 @@ im /var/lib/bind/etc/rfc1912.conf
 ```bash
 zone "au-team.irpo" {
     type master;
-    file "au-team.irpo";
+    file "nebula.core";
 };
 
 zone "2.168.192.in-addr.arpa" {
@@ -128,15 +128,15 @@ zone "3.168.192.in-addr.arpa" {
 ```
 Шаг 4. Создание файлов зон
 ```bash
-cp /var/lib/bind/etc/zone/empty /var/lib/bind/etc/zone/au-team.irpo
+cp /var/lib/bind/etc/zone/empty /var/lib/bind/etc/zone/nebula.core
 cp /var/lib/bind/etc/zone/empty /var/lib/bind/etc/zone/2.168.192.in-addr.arpa
 cp /var/lib/bind/etc/zone/empty /var/lib/bind/etc/zone/3.168.192.in-addr.arpa
 ```
-Шаг 5. Настройка прямой зоны au-team.irpo
-vim /var/lib/bind/etc/zone/au-team.irpo
+Шаг 5. Настройка прямой зоны nebula.core
+vim /var/lib/bind/etc/zone/nebula.core
 ```bash
 $TTL    1D
-@       IN      SOA     au-team.irpo. root.au-team.irpo. (
+@       IN      SOA     nebula.core. root.nebula.core. (
                         2023102401      ; serial
                         12H             ; refresh
                         1H              ; retry
@@ -161,33 +161,33 @@ br-srv  IN      A       172.16.4.2
 vim /var/lib/bind/etc/zone/2.168.192.in-addr.arpa
 ```bash
 $TTL    1D
-@       IN      SOA     au-team.irpo. root.au-team.irpo. (
+@       IN      SOA     nebula.core. root.nebula.core. (
                         2023102401      ; serial
                         12H             ; refresh
                         1H              ; retry
                         1W              ; expire
                         1H )            ; ncache
 
-        IN      NS      au-team.irpo.
+        IN      NS      nebula.core.
 
-1       IN      PTR     hq-rtr.au-team.irpo.
-2       IN      PTR     hq-srv.au-team.irpo.
+1       IN      PTR     hq-rtr.nebula.core.
+2       IN      PTR     hq-srv.nebula.core.
 ```
 Шаг 7. Настройка обратной зоны VLAN 200 (192.168.3.0/28)
 vim /var/lib/bind/etc/zone/3.168.192.in-addr.arpa:
 ```bash
 $TTL    1D
-@       IN      SOA     au-team.irpo. root.au-team.irpo. (
+@       IN      SOA     nebula.core. root.nebula.core. (
                         2023102401      ; serial
                         12H             ; refresh
                         1H              ; retry
                         1W              ; expire
                         1H )            ; ncache
 
-        IN      NS      au-team.irpo.
+        IN      NS      nebula.core.
 
-1       IN      PTR     hq-rtr.au-team.irpo.
-2       IN      PTR     hq-cli.au-team.irpo.
+1       IN      PTR     hq-rtr.nebula.core.
+2       IN      PTR     hq-cli.nebula.core.
 ```
 Шаг 8. Настройка утилиты rndc
 Сгенерируйте ключ безопасности и обрежьте лишние строки:
