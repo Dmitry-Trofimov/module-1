@@ -56,7 +56,7 @@ systemctl restart network
 
 ## BR-SRV (ALT Linux)
 ```bash
-hostnamectl set-hostname br-srv.au.team-irpo ; exec bash
+hostnamectl set-hostname br-srv.nebula.core ; exec bash
 mkdir /etc/net/ifaces/ens18
 cp /etc/net/ifaces/ens1/options /etc/net/ifaces/ens18
 echo 172.16.4.2/30 > /etc/net/ifaces/ens18/ipv4address
@@ -67,7 +67,7 @@ systemctl restart network
 ## HQ-SRV (ALT Linux)
 
 ```bash
-hostnamectl set-hostname hq-srv.au.team-irpo ; exec bash
+hostnamectl set-hostname hq-srv.nebula.core ; exec bash
 mkdir /etc/net/ifaces/ens18
 cp /etc/net/ifaces/ens1/options /etc/net/ifaces/ens18
 echo 192.168.2.2/30 > /etc/net/ifaces/ens18/ipv4address
