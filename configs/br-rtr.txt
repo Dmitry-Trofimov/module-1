@@ -1,7 +1,7 @@
 enable
 configure terminal
 hostname br-rtr
-ip domain-name au-team.irpo
+ip domain-name nebula.core
 
 username net_admin
 password P@ssw0rd
