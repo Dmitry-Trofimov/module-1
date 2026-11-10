@@ -1,7 +1,7 @@
 enable
 configure terminal
 hostname hq-rtr
-ip domain-name au-team.irpo
+ip domain-name nebula.core
 username net_admin
 password P@ssw0rd
 role admin
@@ -104,7 +104,7 @@ dhcp-server 1
  mask 28
  gateway 192.168.3.1
  dns 192.168.2.2
- domain-name au-team.irpo
+ domain-name nebula.core
 exit
 
 interface vl200
