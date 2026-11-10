@@ -9,7 +9,7 @@ exec bash
 mkdir /etc/net/ifaces/ens19
 cp /etc/net/ifaces/ens18/options /etc/net/ifaces/ens19
 echo 172.16.1.1/28 > /etc/net/ifaces/ens19/ipv4address
-vim /etc/net/ifaces/ens19/options
+vim /etc/net/ifaces/ens19/options (измени графу на BOOTROTO=static)
 # Проверьте, что конфигурация статическая, затем сохраните файл.
 
 systemctl restart network
@@ -61,6 +61,7 @@ cp /etc/net/ifaces/ens1/options /etc/net/ifaces/ens18
 echo 172.16.4.2/30 > /etc/net/ifaces/ens18/ipv4address
 echo default via 192.168.4.1 > /etc/net/ifaces/ens18/ipv4route
 systemctl restart network
+vim /etc/net/ifaces/ens18/options (измени графу на BOOTROTO=static)
 ```
 ## HQ-SRV (ALT Linux)
 
@@ -70,6 +71,7 @@ cp /etc/net/ifaces/ens1/options /etc/net/ifaces/ens18
 echo 192.168.2.2/30 > /etc/net/ifaces/ens18/ipv4address
 echo default via 192.168.2.1 > /etc/net/ifaces/ens18/ipv4route
 echo nameserver 77.88.8.8 > /etc/net/resolv.conf (ВРЕМЕННЫЙ DNS СЕРВЕР)
+vim /etc/net/ifaces/ens18/options (измени графу на BOOTROTO=static)
 systemctl restart network
 ```
 НАСТРОЙКА DNS 
