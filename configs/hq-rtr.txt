@@ -37,17 +37,17 @@ exit
 
 port te1
  service-instance te1/int1
- encapsulation dot1q 100 exact
+ encapsulation dot1q 100
  rewrite pop 1
  connect ip interface int1
 exit
  service-instance te1/int2
- encapsulation dot1q 200 exact
+ encapsulation dot1q 200
  rewrite pop 1
  connect ip interface int2
 exit
  service-instance te1/vl999
- encapsulation dot1q 999 exact
+ encapsulation dot1q 999 
  rewrite pop 1
  connect ip interface vl999
 exit
