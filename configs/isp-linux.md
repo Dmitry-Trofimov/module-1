@@ -60,8 +60,8 @@ mkdir /etc/net/ifaces/ens18
 cp /etc/net/ifaces/ens1/options /etc/net/ifaces/ens18
 echo 172.16.4.2/30 > /etc/net/ifaces/ens18/ipv4address
 echo default via 192.168.4.1 > /etc/net/ifaces/ens18/ipv4route
-systemctl restart network
 vim /etc/net/ifaces/ens18/options (измени графу на BOOTROTO=static)
+systemctl restart network
 ```
 ## HQ-SRV (ALT Linux)
 
