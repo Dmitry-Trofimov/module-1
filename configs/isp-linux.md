@@ -72,7 +72,7 @@ mkdir /etc/net/ifaces/ens18
 cp /etc/net/ifaces/ens1/options /etc/net/ifaces/ens18
 echo 192.168.2.2/30 > /etc/net/ifaces/ens18/ipv4address
 echo default via 192.168.2.1 > /etc/net/ifaces/ens18/ipv4route
-echo nameserver 77.88.8.8 > /etc/net/resolv.conf (ВРЕМЕННЫЙ DNS СЕРВЕР)
+echo nameserver 77.88.8.8 > /etc/resolv.conf (ВРЕМЕННЫЙ DNS СЕРВЕР)
 vim /etc/net/ifaces/ens18/options (измени графу на BOOTROTO=static)
 systemctl restart network
 ```
