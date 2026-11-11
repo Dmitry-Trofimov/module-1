@@ -91,12 +91,12 @@ ip nat pool VLAN100 192.168.2.2-192.168.2.16
 ip nat pool VLAN200 192.168.3.2-192.168.3.16
 ip nat pool VLAN999 192.168.99.2-192.168.99.4
 
-ip nat source dynamic inside-to-outside pool VLAN100 overload interface isp
-ip nat source dynamic inside-to-outside pool VLAN200 overload interface isp
-ip nat source dynamic inside-to-outside pool VLAN999 overload interface isp
+ip nat source dynamic inside-to-outside pool VLAN100 overload interface int0 (интерфейс пишешь тот который идёт в сторону самого ISP)
+ip nat source dynamic inside-to-outside pool VLAN200 overload interface int0
+ip nat source dynamic inside-to-outside pool VLAN999 overload interface int0
 
 ip pool VLAN200
- range 192.168.3.2-192.168.3.2
+ range 192.168.3.2-192.168.3.14
 exit
 
 dhcp-server 1
