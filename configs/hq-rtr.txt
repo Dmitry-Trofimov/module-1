@@ -31,7 +31,7 @@ exit
 port te0
  service-instance te0/int0
  encapsulation untagged
- connect ip interface isp
+ connect ip interface int0
 exit
 exit
 
