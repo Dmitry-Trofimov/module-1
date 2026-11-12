@@ -26,9 +26,15 @@ exit
 - `role admin` — назначаю права администратора.
 - `exit` — выхожу из режима настройки пользователя.
 
-## 2. Настройка IP-адресов интерфейсов
+## 2. Настройка IP-адресов интерфейсов ( description по схеме в задании!! )
 
 ```bash
+interface int0
+ description "ISP"
+ ip address 172.16.1.2/28
+ ip nat outside
+exit
+
 interface int1
  description "srv"
  ip address 192.168.2.1/28
@@ -42,12 +48,6 @@ exit
 interface vl999
  description "switch"
  ip address 192.168.99.1/29
-exit
-
-interface int0
- description "ISP"
- ip address 172.16.1.2/28
- ip nat outside
 exit
 ```
 
