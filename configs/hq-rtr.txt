@@ -107,7 +107,7 @@ dhcp-server 1
  domain-name nebula.core
 exit
 
-interface vl200
+interface int2 (тут пишешь интерфейс который у тебя идет в сторону hq-cli !!!!)
  dhcp-server 1
 exit
 
