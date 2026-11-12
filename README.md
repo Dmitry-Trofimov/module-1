@@ -65,7 +65,7 @@
 
 - [`docs/topology-and-addressing.md`](docs/topology-and-addressing.md) — схема, адресация и замечания по проверке.
 - [`configs/isp-linux.md`](configs/isp-linux.md) — команды настройки ISP и HQ-SRV и BR-SRV и HQ-CLI и FW-DT.
-- [`configs/hq-rtr.txt`](configs/hq-rtr.txt) — настройка HQ-RTR 
+- [`configs/hq-rtr.txt`](configs/hq-rtr.md) — настройка HQ-RTR 
 - [`configs/br-rtr.txt`](configs/br-rtr.txt) — настройка BR-RTR 
 - [`assets/topology.png`](assets/topology.png) — схема экзаменационной сети.
 
