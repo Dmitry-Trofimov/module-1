@@ -143,7 +143,7 @@ $TTL    1D
                         1W              ; expire
                         1H )            ; ncache
 
-        IN      NS      au-team.irpo.
+        IN      NS      nebula.core.
 hq-srv  IN      A       192.168.2.2
 hq-cli  IN      A       192.168.3.2
 hq-rtr  IN      A       192.168.2.1
@@ -211,7 +211,7 @@ total 32
 -rw-r----- 1 root named  378 Sep  4 10:14 100.168.192.in-addr.arpa
 -rw-r----- 1 root named  212 May 22 11:22 127.in-addr.arpa
 -rw-r----- 1 root named  378 Sep  4 10:15 200.168.192.in-addr.arpa
--rw-r----- 1 root named  558 Sep  4 10:13 au-team.irpo
+-rw-r----- 1 root named  558 Sep  4 10:13 nebula.core
 -rw-r----- 1 root named  309 May 22 11:22 empty
 -rw-r----- 1 root named  208 May 22 11:22 localdomain
 -rw-r----- 1 root named  178 May 22 11:22 localhost
