@@ -70,7 +70,7 @@
 - [`assets/topology.png`](assets/topology.png) — схема экзаменационной сети.
 
  ## НУ ТЫ ЗНАЕШЬ ЧТО ДЕЛАТЬ)
- https://www.donationalerts.com/r/daimonfantic2007
+ [`**УСКОРЬ РЕШЕНИЕ МОДУЛЯ 2-3-4 ) **`](https://www.donationalerts.com/r/daimonfantic2007)
 
 ## ⚠️ Дисклеймер
 
