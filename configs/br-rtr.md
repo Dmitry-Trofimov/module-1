@@ -31,7 +31,7 @@ exit
 
 ```bash
 interface int0
- description "ISP"
+ description "ISP-BR"
  ip address 172.16.2.2/28
  ip nat outside
 exit
@@ -58,7 +58,7 @@ exit
 
 ```bash
 interface int1
- description "BR-FW"
+ description "FW-NET"
  ip address 172.16.3.1/30
  ip nat inside
 exit
