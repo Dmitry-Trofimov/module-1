@@ -30,23 +30,23 @@ exit
 
 ```bash
 interface int0
- description "ISP"
+ description "ISP-HQ"
  ip address 172.16.1.2/28
  ip nat outside
 exit
 
 interface int1
- description "srv"
+ description "SRV-NET"
  ip address 192.168.2.1/28
 exit
 
 interface int2
- description "cli"
+ description "CLI-NET"
  ip address 192.168.3.1/28
 exit
 
 interface vl999
- description "switch"
+ description "HQ-NET"
  ip address 192.168.99.1/29
 exit
 ```
