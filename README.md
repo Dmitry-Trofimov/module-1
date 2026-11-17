@@ -45,6 +45,7 @@
 
 **DNS, указанный в исходных материалах:** `77.88.8.8` на HQ-SRV; HQ-CLI BR-SRV использует `192.168.2.2` по схеме.
 
+```bash
 **ЕСЛИ ЕСТЬ ПРОБЛЕМЫ С ДОСТУПОМ В ИНТЕРНЕТ НА isp 
 (ISP) делать при первом запуске и сбросе
 rm -f /etc/apt/sources.list.d/local.list
@@ -56,7 +57,7 @@ apt-repo add http://172.20.100.89/mirror/p11/branch
 apt-repo rm all
 apt-repo add http://172.20.100.89/mirror/p11/branch
 apt-get update
-
+```
 ## 📂 Файлы репозитория
 
 - [`docs/topology-and-addressing.md`](docs/topology-and-addressing.md) — схема, адресация и замечания по проверке.
