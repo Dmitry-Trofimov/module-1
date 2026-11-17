@@ -43,8 +43,19 @@
 | BR-SRV | `172.16.4.2/30` |
 | VLAN 999 (управление коммутатором) | `192.168.99.0/30` в конфигурации HQ-RTR |
 
-**DNS, указанный в исходных материалах:** `77.88.8.8` на HQ-SRV и HQ-CLI; BR-SRV использует `172.16.4.1` по схеме.
+**DNS, указанный в исходных материалах:** `77.88.8.8` на HQ-SRV; HQ-CLI BR-SRV использует `192.168.2.2` по схеме.
 
+**ЕСЛИ ЕСТЬ ПРОБЛЕМЫ С ДОСТУПОМ В ИНТЕРНЕТ НА isp 
+(ISP) делать при первом запуске и сбросе
+rm -f /etc/apt/sources.list.d/local.list
+apt-get update
+apt-get install -y apt-repo
+apt-repo rm all
+apt-repo add http://172.20.100.89/mirror/p11/branch
+(SRV)
+apt-repo rm all
+apt-repo add http://172.20.100.89/mirror/p11/branch
+apt-get update
 
 ## 📂 Файлы репозитория
 
