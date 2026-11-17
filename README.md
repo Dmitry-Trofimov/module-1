@@ -47,16 +47,17 @@
 
 **ЕСЛИ ЕСТЬ ПРОБЛЕМЫ С ДОСТУПОМ В ИНТЕРНЕТ НА isp И srv**
 ```bash
-(ISP) делать при первом запуске и сбросе
-rm -f /etc/apt/sources.list.d/local.list
-apt-get update
-apt-get install -y apt-repo
-apt-repo rm all
-apt-repo add http://172.20.100.89/mirror/p11/branch
-(SRV)
-apt-repo rm all
-apt-repo add http://172.20.100.89/mirror/p11/branch
-apt-get update
+ISP
+rm -f /etc/apt/sources.list.d/local.list   # удалить локальный список репозиториев
+apt-get update                              # обновить индекс пакетов
+apt-get install -y apt-repo                 # установить утилиту apt-repo
+apt-repo rm all                             # удалить все репозитории
+apt-repo add http://172.20.100.89/mirror/p11/branch  # добавить зеркало p11/branch
+
+SRV
+apt-repo rm all                             # удалить все репозитории
+apt-repo add http://172.20.100.89/mirror/p11/branch  # добавить зеркало p11/branch
+apt-get update                              # обновить индекс пакетов
 ```
 ## 📂 Файлы репозитория
 
