@@ -28,6 +28,9 @@ iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE
 iptables-save > /etc/sysconfig/iptables
 systemctl enable --now iptables
 systemctl restart network
+
+Проверка правил iptables 
+iptables -t nat -L -n -v
 ```
 
 > В исходном файле строка записана как `ip tables` и `systemctl enable –now` с длинным тире. Здесь показан типовой вариант написания; проверьте команды на используемой версии ОС.
