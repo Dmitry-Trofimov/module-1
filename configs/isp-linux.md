@@ -114,7 +114,7 @@ options {
 im /var/lib/bind/etc/rfc1912.conf
 ВСЕ ЗАПИСИ В КОНЕЦ ФАЙЛА!
 ```bash
-zone "au-team.irpo" {
+zone "nebula.core" {
     type master;
     file "nebula.core";
 };
