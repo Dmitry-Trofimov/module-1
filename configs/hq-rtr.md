@@ -179,7 +179,7 @@ router ospf 1
  ospf router-id 10.10.10.1
  passive-interface default
  no passive-interface tunnel.0
- network 10.10.10.0/28 area 0
+ network 10.10.10.0/30 area 0
  network 192.168.2.0/28 area 0
  network 192.168.3.0/28 area 0
  network 192.168.99.0/29 area 0
